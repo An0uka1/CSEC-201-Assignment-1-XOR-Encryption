@@ -31,7 +31,7 @@ int main() {
         }
         
         xorEncryptDecrypt(message, key);
-        fprintf(file, "%s\n", message);
+        fprintf(file, "%s", message);
         fclose(file);
     } else if (strcmp(choice, "decrypt") == 0) {
         printf("Enter the filename to read encrypted data: ");
