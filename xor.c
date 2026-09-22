@@ -20,11 +20,13 @@ int main() {
         fgets(message, sizeof(message), stdin);
         message[strcspn(message, "\n")] = '\0'; // Remove newline character
         printf("Enter the filename to save encrypted data: ");
-        scanf("%s", filename);
+        fgets(filename, sizeof(filename), stdin);
+        filename[strcspn(filename, "\n")] = '\0';
         printf("Enter the key: ");
-        scanf("%s", key);
+        fgets(key, sizeof(key), stdin);
+        key[strcspn(key, "\n")] = '\0';
         
-        FILE *file = fopen(filename, "w");
+        FILE *file = fopen(filename, "wb");
         if (file == NULL) {
             printf("Error opening file for writing.\n");
             return 1;
@@ -35,9 +37,11 @@ int main() {
         fclose(file);
     } else if (strcmp(choice, "decrypt") == 0) {
         printf("Enter the filename to read encrypted data: ");
-        scanf("%s", filename);
+        fgets(filename, sizeof(filename), stdin);
+        filename[strcspn(filename, "\n")] = '\0';
         printf("Enter the key: ");
-        scanf("%s", key);
+        fgets(key, sizeof(key), stdin);
+        key[strcspn(key, "\n")] = '\0';
         
         FILE *file = fopen(filename, "r");
         if (file == NULL) {
