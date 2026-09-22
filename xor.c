@@ -23,8 +23,7 @@ int main() {
         fgets(filename, sizeof(filename), stdin);
         filename[strcspn(filename, "\n")] = '\0';
         printf("Enter the key: ");
-        fgets(key, sizeof(key), stdin);
-        key[strcspn(key, "\n")] = '\0';
+        scanf("%s", key);
         
         FILE *file = fopen(filename, "wb");
         if (file == NULL) {
@@ -40,10 +39,9 @@ int main() {
         fgets(filename, sizeof(filename), stdin);
         filename[strcspn(filename, "\n")] = '\0';
         printf("Enter the key: ");
-        fgets(key, sizeof(key), stdin);
-        key[strcspn(key, "\n")] = '\0';
+        scanf("%s", key);
         
-        FILE *file = fopen(filename, "r");
+        FILE *file = fopen(filename, "rb");
         if (file == NULL) {
             printf("Error opening file for reading.\n");
             return 1;
